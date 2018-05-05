@@ -10,7 +10,7 @@
 
     <style>
         body {
-            font-family: 'Comic Sans MS';
+            font-family: 'Comic Sans MS', 'Comic Sans', sans-serif;
         }
 
         .center {
@@ -82,7 +82,7 @@
             let s = setInterval(() => {
                 $('.all-letters').append('<span class="letter">' + words[i++ % words.length] + '</span>');
                 $('.all-letters').append('<span class="letter">' + clap + '</span>');
-            }, 50);
+            }, 100);
         }
 
         const d = new Date();
