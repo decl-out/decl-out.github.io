@@ -1,11 +1,95 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>I 👏 am 👏 Decl'ed 👏 Out! 👏</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Comic Sans MS';
+        }
+
+        .center {
+            text-align: center;
+            color: blue;
+        }
+
+        .footer {
+            display: flex;
+            flex-direction: row;
+            margin-top: auto;
+        }
+
+        #modified {
+            margin-right: auto;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        .letter {
+            color: black;
+            transition: scale 0.5s;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .letter:hover {
+            color: blue;
+            font-size: 22px;
+
+        }
+
+    </style>
   </head>
-  
   <body>
+    <div class="container">
+        <h1 class="center">
+            I 👏 am 👏 Decl'ed 👏 Out! 👏
+        </h1>
+
+        <div class="all-letters">
+        </div>
+
+        <div class="footer">
+            <div id="modified">
+            </div>
+            <div id="lecture">
+                <p>CS164: Lecture #420</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let i = 0;
+        let text = "I would like to respectfully ask if a clobber policy is possible for the projects in this class? Speaking for my group, and I'm sure others, we have all spent more time on this project than we have for any other cs class in our time here at berkeley, and still can't even pass more than half of the test cases. It doesn't seem fair that because we have been unable to understand one concept, we have been blocked on this entire project and our whole grade will suffer when we understand the content of the class for the most part and have been putting in the time and work to study for the midterms and do the homework. We have gone to almost all the office hours, posted and read piazza, and filed git bugs. We have used all of our resources and time, and I don't think what we have to show for that is representative of that."
+        let words = text.split(' ');
+
+        const clap = '👏';
+        function populate() {
+            let s = setInterval(() => {
+                $('.all-letters').append('<span class="letter">' + words[i++ % words.length] + '</span>');
+                $('.all-letters').append('<span class="letter">' + clap + '</span>');
+            }, 50);
+        }
+
+        const d = new Date();
+        $('#modified').append('<p>Last modified: ' + d + '</p>');
+
+        populate();
+
+    </script>
   </body>
 </html>
